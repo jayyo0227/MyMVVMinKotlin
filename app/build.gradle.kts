@@ -50,6 +50,10 @@ android {
 }
 
 dependencies {
+// Retrofit
+    implementation(libs.retrofit2.retrofit)
+// Retrofit with Scalar Converter
+    implementation(libs.converter.scalars)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

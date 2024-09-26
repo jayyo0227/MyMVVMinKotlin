@@ -20,12 +20,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import jayyo.mymvvminkotlin.model.User
 import jayyo.mymvvminkotlin.ui.theme.MyMVVMInKotlinTheme
 import jayyo.mymvvminkotlin.viewModel.MainViewModel
+import jayyo.mymvvminkotlin.viewModel.MarsViewModel
 
 class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
+    private val marsViewModel: MarsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,13 @@ class MainActivity : ComponentActivity() {
                     Box(modifier = Modifier.fillMaxSize()) {
                         Column(modifier = Modifier.align(Alignment.Center)) {
                             UserListScreen(mainViewModel)
+                        }
+
+                        Column(
+                            modifier = Modifier.align(Alignment.TopCenter)
+                                .padding(0.dp, 0.dp, 0.dp, 0.dp)
+                        ) {
+                            Text(text = marsViewModel.marsUiState)
                         }
                     }
                 }
